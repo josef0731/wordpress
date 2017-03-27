@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8888
--- Generation Time: Mar 27, 2017 at 07:07 PM
+-- Generation Time: Mar 27, 2017 at 08:07 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -29,9 +28,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 -- --------------------------------------------------------
 
@@ -42,20 +41,20 @@ CREATE TABLE `wp_commentmeta` (
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint(20) UNSIGNED NOT NULL,
   `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `comment_author` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author` tinytext NOT NULL,
+  `comment_author_email` varchar(100) NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) NOT NULL DEFAULT '',
   `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `comment_content` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_content` text NOT NULL,
   `comment_karma` int(11) NOT NULL DEFAULT '0',
-  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
-  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `comment_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_approved` varchar(20) NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) NOT NULL DEFAULT '',
+  `comment_type` varchar(20) NOT NULL DEFAULT '',
   `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_comments`
@@ -73,21 +72,21 @@ INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `c
 CREATE TABLE `wp_hugeit_maps_circles` (
   `id` int(11) UNSIGNED NOT NULL,
   `map_id` int(11) DEFAULT NULL,
-  `name` text COLLATE utf8mb4_unicode_520_ci,
-  `center_lat` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0',
-  `center_lng` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0',
+  `name` text,
+  `center_lat` varchar(255) NOT NULL DEFAULT '0',
+  `center_lng` varchar(255) NOT NULL DEFAULT '0',
   `radius` int(50) NOT NULL DEFAULT '50000',
   `line_width` int(3) NOT NULL DEFAULT '5',
   `line_opacity` float NOT NULL DEFAULT '0.8',
-  `line_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'FF2B39',
-  `fill_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '4FFF72',
+  `line_color` varchar(7) NOT NULL DEFAULT 'FF2B39',
+  `fill_color` varchar(7) NOT NULL DEFAULT '4FFF72',
   `fill_opacity` float NOT NULL DEFAULT '0.4',
   `hover_line_opacity` float NOT NULL DEFAULT '0.6',
-  `hover_line_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'FF5C5C',
-  `hover_fill_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '96FFA1',
+  `hover_line_color` varchar(7) NOT NULL DEFAULT 'FF5C5C',
+  `hover_fill_color` varchar(7) NOT NULL DEFAULT '96FFA1',
   `hover_fill_opacity` float NOT NULL DEFAULT '0.3',
   `show_marker` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -98,17 +97,17 @@ CREATE TABLE `wp_hugeit_maps_circles` (
 CREATE TABLE `wp_hugeit_maps_directions` (
   `id` int(11) UNSIGNED NOT NULL,
   `map_id` int(11) DEFAULT NULL,
-  `name` text COLLATE utf8mb4_unicode_520_ci,
-  `start_lat` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `start_lng` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `end_lat` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `end_lng` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `line_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'FF0F0F',
+  `name` text,
+  `start_lat` varchar(255) DEFAULT NULL,
+  `start_lng` varchar(255) DEFAULT NULL,
+  `end_lat` varchar(255) DEFAULT NULL,
+  `end_lng` varchar(255) DEFAULT NULL,
+  `line_color` varchar(7) NOT NULL DEFAULT 'FF0F0F',
   `line_width` int(2) NOT NULL DEFAULT '5',
   `line_opacity` float NOT NULL DEFAULT '0.9',
   `show_steps` int(1) NOT NULL DEFAULT '0',
-  `travel_mode` enum('DRIVING','WALKING','BICYCLING','TRANSIT') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'DRIVING'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `travel_mode` enum('DRIVING','WALKING','BICYCLING','TRANSIT') NOT NULL DEFAULT 'DRIVING'
+) ;
 
 -- --------------------------------------------------------
 
@@ -118,12 +117,12 @@ CREATE TABLE `wp_hugeit_maps_directions` (
 
 CREATE TABLE `wp_hugeit_maps_maps` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_520_ci,
-  `type` enum('ROADMAP','SATELLITE','HYBRID','TERRAIN') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'ROADMAP',
+  `name` text,
+  `type` enum('ROADMAP','SATELLITE','HYBRID','TERRAIN') NOT NULL DEFAULT 'ROADMAP',
   `zoom` int(2) NOT NULL DEFAULT '2',
   `border_radius` int(2) NOT NULL DEFAULT '0',
-  `center_lat` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0',
-  `center_lng` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0',
+  `center_lat` varchar(255) NOT NULL DEFAULT '0',
+  `center_lng` varchar(255) NOT NULL DEFAULT '0',
   `pan_controller` int(1) UNSIGNED NOT NULL DEFAULT '1',
   `zoom_controller` int(1) UNSIGNED NOT NULL DEFAULT '1',
   `type_controller` int(1) UNSIGNED NOT NULL DEFAULT '1',
@@ -132,23 +131,23 @@ CREATE TABLE `wp_hugeit_maps_maps` (
   `overview_map_controller` int(1) UNSIGNED NOT NULL DEFAULT '1',
   `width` int(3) NOT NULL DEFAULT '100',
   `height` int(3) NOT NULL DEFAULT '450',
-  `align` enum('left','right','center') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'left',
+  `align` enum('left','right','center') NOT NULL DEFAULT 'left',
   `wheel_scroll` int(1) UNSIGNED NOT NULL DEFAULT '1',
   `draggable` int(1) UNSIGNED NOT NULL DEFAULT '1',
-  `language` text COLLATE utf8mb4_unicode_520_ci,
+  `language` text,
   `min_zoom` int(2) NOT NULL DEFAULT '0',
   `max_zoom` int(2) NOT NULL DEFAULT '22',
-  `info_type` enum('click','hover') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'click',
+  `info_type` enum('click','hover') NOT NULL DEFAULT 'click',
   `open_infowindows_onload` int(1) UNSIGNED NOT NULL DEFAULT '0',
   `traffic_layer` int(1) UNSIGNED NOT NULL DEFAULT '0',
   `bike_layer` int(1) UNSIGNED NOT NULL DEFAULT '0',
   `transit_layer` int(1) UNSIGNED NOT NULL DEFAULT '0',
-  `styling_hue` varchar(7) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `styling_hue` varchar(7) DEFAULT NULL,
   `styling_lightness` int(3) NOT NULL DEFAULT '0',
   `styling_gamma` int(2) UNSIGNED NOT NULL DEFAULT '1',
   `styling_saturation` int(3) NOT NULL DEFAULT '0',
-  `animation` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'none'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `animation` varchar(100) NOT NULL DEFAULT 'none'
+) ;
 
 --
 -- Dumping data for table `wp_hugeit_maps_maps`
@@ -167,14 +166,14 @@ INSERT INTO `wp_hugeit_maps_maps` (`id`, `name`, `type`, `zoom`, `border_radius`
 CREATE TABLE `wp_hugeit_maps_markers` (
   `id` int(11) UNSIGNED NOT NULL,
   `map_id` int(11) UNSIGNED DEFAULT NULL,
-  `name` text COLLATE utf8mb4_unicode_520_ci,
-  `lat` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0',
-  `lng` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0',
-  `animation` enum('BOUNCE','DROP','NONE') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'NONE',
-  `description` text COLLATE utf8mb4_unicode_520_ci,
-  `img` text COLLATE utf8mb4_unicode_520_ci,
+  `name` text,
+  `lat` varchar(255) NOT NULL DEFAULT '0',
+  `lng` varchar(255) NOT NULL DEFAULT '0',
+  `animation` enum('BOUNCE','DROP','NONE') NOT NULL DEFAULT 'NONE',
+  `description` text,
+  `img` text,
   `size` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_hugeit_maps_markers`
@@ -192,19 +191,19 @@ INSERT INTO `wp_hugeit_maps_markers` (`id`, `map_id`, `name`, `lat`, `lng`, `ani
 CREATE TABLE `wp_hugeit_maps_polygons` (
   `id` int(11) UNSIGNED NOT NULL,
   `map_id` int(11) UNSIGNED NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_520_ci,
-  `data` longtext COLLATE utf8mb4_unicode_520_ci,
-  `line_opacity` varchar(3) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0.9',
-  `line_color` varchar(6) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'FF0F0F',
-  `fill_opacity` varchar(3) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0.5',
-  `fill_color` varchar(6) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '5DFF0D',
-  `url` text COLLATE utf8mb4_unicode_520_ci,
-  `hover_line_opacity` varchar(3) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0.5',
-  `hover_line_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'FF80B7',
-  `hover_fill_opacity` varchar(3) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0.5',
-  `hover_fill_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '75FF7E',
+  `name` text,
+  `data` longtext,
+  `line_opacity` varchar(3) NOT NULL DEFAULT '0.9',
+  `line_color` varchar(6) NOT NULL DEFAULT 'FF0F0F',
+  `fill_opacity` varchar(3) NOT NULL DEFAULT '0.5',
+  `fill_color` varchar(6) NOT NULL DEFAULT '5DFF0D',
+  `url` text,
+  `hover_line_opacity` varchar(3) NOT NULL DEFAULT '0.5',
+  `hover_line_color` varchar(7) NOT NULL DEFAULT 'FF80B7',
+  `hover_fill_opacity` varchar(3) NOT NULL DEFAULT '0.5',
+  `hover_fill_color` varchar(7) NOT NULL DEFAULT '75FF7E',
   `line_width` int(2) NOT NULL DEFAULT '5'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -215,14 +214,14 @@ CREATE TABLE `wp_hugeit_maps_polygons` (
 CREATE TABLE `wp_hugeit_maps_polylines` (
   `id` int(11) UNSIGNED NOT NULL,
   `map_id` int(11) UNSIGNED NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_520_ci,
-  `data` text COLLATE utf8mb4_unicode_520_ci,
-  `line_opacity` varchar(5) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '0.9',
-  `line_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '18A326',
-  `line_width` varchar(2) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '5',
-  `hover_line_color` varchar(7) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '11A000',
+  `name` text,
+  `data` text,
+  `line_opacity` varchar(5) NOT NULL DEFAULT '0.9',
+  `line_color` varchar(7) NOT NULL DEFAULT '18A326',
+  `line_width` varchar(2) NOT NULL DEFAULT '5',
+  `hover_line_color` varchar(7) NOT NULL DEFAULT '11A000',
   `hover_line_opacity` float NOT NULL DEFAULT '0.5'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -233,12 +232,12 @@ CREATE TABLE `wp_hugeit_maps_polylines` (
 CREATE TABLE `wp_hugeit_slider_slide` (
   `id` int(11) UNSIGNED NOT NULL,
   `slider_id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(512) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `description` varchar(2048) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `url` varchar(2048) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `title` varchar(512) DEFAULT NULL,
+  `description` varchar(2048) DEFAULT NULL,
+  `url` varchar(2048) DEFAULT NULL,
   `attachment_id` bigint(20) UNSIGNED DEFAULT NULL,
   `in_new_tab` int(1) UNSIGNED NOT NULL DEFAULT '1',
-  `type` enum('image','video','post') COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `type` enum('image','video','post') NOT NULL,
   `order` int(5) UNSIGNED NOT NULL,
   `post_term_id` bigint(20) UNSIGNED DEFAULT NULL,
   `post_show_title` int(1) UNSIGNED DEFAULT NULL,
@@ -251,7 +250,7 @@ CREATE TABLE `wp_hugeit_slider_slide` (
   `video_show_info` int(1) UNSIGNED DEFAULT NULL,
   `video_control_color` int(8) UNSIGNED DEFAULT NULL,
   `draft` int(1) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_hugeit_slider_slide`
@@ -270,19 +269,19 @@ INSERT INTO `wp_hugeit_slider_slide` (`id`, `slider_id`, `title`, `description`,
 
 CREATE TABLE `wp_hugeit_slider_slider` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(128) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'My New Slider',
+  `name` varchar(128) NOT NULL DEFAULT 'My New Slider',
   `width` int(4) UNSIGNED NOT NULL DEFAULT '600',
   `height` int(4) UNSIGNED NOT NULL DEFAULT '375',
-  `effect` enum('none','cube_h','cube_v','fade','slice_h','slice_v','slide_h','slide_v','scale_out','scale_in','block_scale','kaleidoscope','fan','blind_h','blind_v','random') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'none',
+  `effect` enum('none','cube_h','cube_v','fade','slice_h','slice_v','slide_h','slide_v','scale_out','scale_in','block_scale','kaleidoscope','fan','blind_h','blind_v','random') NOT NULL DEFAULT 'none',
   `pause_time` int(5) UNSIGNED NOT NULL DEFAULT '4000',
   `change_speed` int(5) UNSIGNED NOT NULL DEFAULT '1000',
-  `position` enum('left','right','center') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'center',
+  `position` enum('left','right','center') NOT NULL DEFAULT 'center',
   `show_loading_icon` int(1) UNSIGNED DEFAULT '0',
-  `navigate_by` enum('dot','thumbnail','none') COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'none',
+  `navigate_by` enum('dot','thumbnail','none') NOT NULL DEFAULT 'none',
   `pause_on_hover` int(1) UNSIGNED NOT NULL DEFAULT '1',
   `video_autoplay` int(1) UNSIGNED DEFAULT '0',
   `random` int(1) UNSIGNED DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_hugeit_slider_slider`
@@ -299,19 +298,19 @@ INSERT INTO `wp_hugeit_slider_slider` (`id`, `name`, `width`, `height`, `effect`
 
 CREATE TABLE `wp_links` (
   `link_id` bigint(20) UNSIGNED NOT NULL,
-  `link_url` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_image` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_target` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_description` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_visible` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'Y',
+  `link_url` varchar(255) NOT NULL DEFAULT '',
+  `link_name` varchar(255) NOT NULL DEFAULT '',
+  `link_image` varchar(255) NOT NULL DEFAULT '',
+  `link_target` varchar(25) NOT NULL DEFAULT '',
+  `link_description` varchar(255) NOT NULL DEFAULT '',
+  `link_visible` varchar(20) NOT NULL DEFAULT 'Y',
   `link_owner` bigint(20) UNSIGNED NOT NULL DEFAULT '1',
   `link_rating` int(11) NOT NULL DEFAULT '0',
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `link_rel` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `link_notes` mediumtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `link_rel` varchar(255) NOT NULL DEFAULT '',
+  `link_notes` mediumtext NOT NULL,
+  `link_rss` varchar(255) NOT NULL DEFAULT ''
+) ;
 
 -- --------------------------------------------------------
 
@@ -321,10 +320,10 @@ CREATE TABLE `wp_links` (
 
 CREATE TABLE `wp_options` (
   `option_id` bigint(20) UNSIGNED NOT NULL,
-  `option_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `option_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `option_name` varchar(191) NOT NULL DEFAULT '',
+  `option_value` longtext NOT NULL,
+  `autoload` varchar(20) NOT NULL DEFAULT 'yes'
+) ;
 
 --
 -- Dumping data for table `wp_options`
@@ -644,7 +643,7 @@ CREATE TABLE `wp_plom_map` (
   `description` text NOT NULL,
   `xCoords` varchar(100) NOT NULL,
   `ycoords` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ;
 
 --
 -- Dumping data for table `wp_plom_map`
@@ -662,9 +661,9 @@ INSERT INTO `wp_plom_map` (`id`, `img_path`, `address1`, `addresss2`, `descripti
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -947,26 +946,26 @@ CREATE TABLE `wp_posts` (
   `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_title` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_excerpt` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `post_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
-  `comment_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
-  `ping_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'open',
-  `post_password` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `post_name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `to_ping` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `pinged` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_content` longtext NOT NULL,
+  `post_title` text NOT NULL,
+  `post_excerpt` text NOT NULL,
+  `post_status` varchar(20) NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) NOT NULL DEFAULT 'open',
+  `post_password` varchar(255) NOT NULL DEFAULT '',
+  `post_name` varchar(200) NOT NULL DEFAULT '',
+  `to_ping` text NOT NULL,
+  `pinged` text NOT NULL,
   `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `post_content_filtered` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_content_filtered` longtext NOT NULL,
   `post_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `guid` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `guid` varchar(255) NOT NULL DEFAULT '',
   `menu_order` int(11) NOT NULL DEFAULT '0',
-  `post_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'post',
-  `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `post_type` varchar(20) NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) NOT NULL DEFAULT '',
   `comment_count` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_posts`
@@ -1102,9 +1101,9 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 -- --------------------------------------------------------
 
@@ -1114,10 +1113,10 @@ CREATE TABLE `wp_termmeta` (
 
 CREATE TABLE `wp_terms` (
   `term_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT '',
   `term_group` bigint(10) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_terms`
@@ -1140,7 +1139,7 @@ CREATE TABLE `wp_term_relationships` (
   `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `term_order` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_term_relationships`
@@ -1169,11 +1168,11 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 CREATE TABLE `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
   `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `taxonomy` varchar(32) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `description` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `taxonomy` varchar(32) NOT NULL DEFAULT '',
+  `description` longtext NOT NULL,
   `parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `count` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ;
 
 --
 -- Dumping data for table `wp_term_taxonomy`
@@ -1195,9 +1194,9 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ;
 
 --
 -- Dumping data for table `wp_usermeta`
@@ -1237,16 +1236,16 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 
 CREATE TABLE `wp_users` (
   `ID` bigint(20) UNSIGNED NOT NULL,
-  `user_login` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_pass` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_nicename` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `user_url` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_login` varchar(60) NOT NULL DEFAULT '',
+  `user_pass` varchar(255) NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) NOT NULL DEFAULT '',
+  `user_email` varchar(100) NOT NULL DEFAULT '',
+  `user_url` varchar(100) NOT NULL DEFAULT '',
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `user_activation_key` varchar(255) NOT NULL DEFAULT '',
   `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `display_name` varchar(250) NOT NULL DEFAULT ''
+) ;
 
 --
 -- Dumping data for table `wp_users`
@@ -1425,12 +1424,12 @@ ALTER TABLE `wp_commentmeta`
 -- AUTO_INCREMENT for table `wp_comments`
 --
 ALTER TABLE `wp_comments`
-  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_maps_circles`
 --
 ALTER TABLE `wp_hugeit_maps_circles`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_maps_directions`
 --
@@ -1440,32 +1439,32 @@ ALTER TABLE `wp_hugeit_maps_directions`
 -- AUTO_INCREMENT for table `wp_hugeit_maps_maps`
 --
 ALTER TABLE `wp_hugeit_maps_maps`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_maps_markers`
 --
 ALTER TABLE `wp_hugeit_maps_markers`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_maps_polygons`
 --
 ALTER TABLE `wp_hugeit_maps_polygons`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_maps_polylines`
 --
 ALTER TABLE `wp_hugeit_maps_polylines`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_slider_slide`
 --
 ALTER TABLE `wp_hugeit_slider_slide`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_hugeit_slider_slider`
 --
 ALTER TABLE `wp_hugeit_slider_slider`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_links`
 --
@@ -1475,22 +1474,22 @@ ALTER TABLE `wp_links`
 -- AUTO_INCREMENT for table `wp_options`
 --
 ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_plom_map`
 --
 ALTER TABLE `wp_plom_map`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_postmeta`
 --
 ALTER TABLE `wp_postmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_posts`
 --
 ALTER TABLE `wp_posts`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_termmeta`
 --
@@ -1500,22 +1499,22 @@ ALTER TABLE `wp_termmeta`
 -- AUTO_INCREMENT for table `wp_terms`
 --
 ALTER TABLE `wp_terms`
-  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_term_taxonomy`
 --
 ALTER TABLE `wp_term_taxonomy`
-  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_usermeta`
 --
 ALTER TABLE `wp_usermeta`
-  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `wp_users`
 --
 ALTER TABLE `wp_users`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
