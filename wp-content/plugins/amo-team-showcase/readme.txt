@@ -3,8 +3,8 @@ Contributors: amothemo
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V493YB5DQ5HVW
 Tags: team, team widget, team member widget, teams, meet the team, meet the staff, team showcase, team grid, staff grid, team shortcode, about us, responsive team, team builder, team profile, members profile, members profiles, team members profile, our team, our staff, team member, team members, team member showcasing, team plugin, responsive team plugin, team member display, wordpress team, members, staff, employees, workers, people, cv, staff bio, member staff, команда, о компании, о нас, персонал, работники, профиль работника, участник команды, член команды, виджет команды
 Requires at least: 4.6
-Tested up to: 4.7.2
-Stable tag: 1.0.8
+Tested up to: 4.7.3
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,6 @@ Easily showcase members of your team/company and their info in sleek, responsive
 
 == Description ==
 [**Live DEMO**]( http://amothemo.com/amo-team-showcase-demo/ "Live plugin demo")
-
-> **IMPORTANT SUPPORT NOTICE:**<br>
-*From 7th March and until 18th March I will not be able to provide plugin support. Thank you for understanding.*
 
 A powerful but an easy way to present your team/staff members and their profiles with beautifully styled descriptions, skills and links to social media.
 
@@ -87,6 +84,10 @@ The plugin doesn’t work with Divi theme (for example), the theme uses Magnific
 5. List of all team members. Admin view.
 
 == Changelog ==
+= 1.0.9 =
+* FIXED – Div structure bug, which caused duplicated hidden content, and also severe layout bugs with some themes.
+<br>*(27 Mar, 2017)*
+
 = 1.0.8 =
 * FEATURE – Alternative scrolling for member info panel.
 * FEATURE – Added new "Style 1.1" variation of "Style 1".

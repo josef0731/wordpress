@@ -130,6 +130,7 @@ class Amo_Team_Showcase_Shortcodes {
 				$panel_modal_id = AMO_TEAM_SHOWCASE_CSS_PREFIX . 'panel-' . $random_id . '-' . $post->ID;
 				$post_title = get_the_title();
 				$last_post = ( $post_counter == $posts_num ? true : false );
+				$first_post = $post_counter === 1;
 
 				// additional <li> classes
 				// js fix class for round image style, if the image is not a rectangle
@@ -144,7 +145,7 @@ class Amo_Team_Showcase_Shortcodes {
 					'title_attr'       => esc_attr( $post_title ),
 					'subtitle'         => esc_html( $metaboxes['subtitle'] ),
 					'opts'             => $plugin_options,
-					'sc_id'            => ( $post_counter === 1 ?
+					'sc_id'            => ( $first_post ?
 						// complete $sc_id
 						( $sc_id = AMO_TEAM_SHOWCASE_CSS_PREFIX . "sc-{$type}-" . $random_id ) : false ),
 					'last_post'        => $last_post,
@@ -163,7 +164,7 @@ class Amo_Team_Showcase_Shortcodes {
 				/*  INFO PANEL OUTPUT
 				-------------------------------------------------------------------*/
 				// First post opens panels wrapper div
-				if ( $sc_id ) { $panels_html .=  '<div class="'. AMO_TEAM_SHOWCASE_CSS_PREFIX . 'panels">'; };
+				if ( $first_post ) { $panels_html .=  '<div class="'. AMO_TEAM_SHOWCASE_CSS_PREFIX . 'panels">'; };
 				// render info panels
 				if ( $panel_is_on && ! $post_format_link ) {
 					$std_post_formats = in_array( $metaboxes['post_format'], array( false, 'qoute') );
@@ -194,7 +195,7 @@ class Amo_Team_Showcase_Shortcodes {
 						) );
 					$panels_html .= $this->renderer->render( 'panel' );
 				} // panel_is_on
-				if ( $last_post ) { $panels_html .=  '<div><!-- .panels -->'; };
+				if ( $last_post ) {	$panels_html .=  '</div><!-- .panels -->'; };
 
 			} // IF has_post_thumbnail
 

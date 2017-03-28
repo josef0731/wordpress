@@ -2,10 +2,10 @@
 /**
  * Plugin Name: AMO Team Showcase
  * Description: Easily showcase members of your team/company and their info in sleek, responsive and professional way.
- * Version: 1.0.8
+ * Version: 1.0.9
  * Author: Oleg Goltsev (amothemo)
  * Requires at least: 4.6
- * Tested up to: 4.7.2
+ * Tested up to: 4.7.3
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin version
  */
-define( 'AMO_TEAM_SHOWCASE_VERSION', '1.0.8' );
+define( 'AMO_TEAM_SHOWCASE_VERSION', '1.0.9' );
 
 /**
  * Path to the plugin main __FILE__
